@@ -1,0 +1,55 @@
+# Setup
+version_name: BridgeNet_nyud_vitLp16_full_dilated_huge_mlphead
+out_dir: "./BridgeNet_outs/"
+
+# Database
+train_db_name: NYUD
+val_db_name: NYUD
+trBatch: 3
+valBatch: 6
+nworkers: 2
+ignore_index: 255
+
+# Optimizer and scheduler
+intermediate_supervision: True
+val_interval: 1000
+epochs: 999999
+max_iter: 20000
+optimizer: adam
+optimizer_kwargs:
+   lr: 0.00002
+   weight_decay: 0.000005
+scheduler: poly
+
+# Model
+model: TransformerNet
+backbone: vitL
+head: mlp
+embed_dim: 512
+mtt_resolution_downsample_rate: 2
+PRED_OUT_NUM_CONSTANT: 64
+REFINE_DEPTH: [18, 18, 18]
+DILATED_RATIO: [[1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5],
+                [1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5],
+                [1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5]]
+SQUEEZE_RATIO: [[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+
+# Tasks
+task_dictionary:
+   include_semseg: True
+   include_depth: True
+   include_edge: True
+   include_normals: True
+   edge_w: 0.95
+
+# Loss kwargs
+loss_kwargs:
+   loss_weights:
+       semseg: 1.0
+       depth: 1.0
+       normals: 10
+       edge: 70.0
+
+grad_clip_param: {'max_norm': 10, 'norm_type': 2}

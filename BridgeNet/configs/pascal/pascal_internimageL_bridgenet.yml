@@ -1,0 +1,60 @@
+# Setup
+version_name: BridgeNet_pascal_dcnv3L_full_dilated_large_mlphead
+out_dir: "./BridgeNet_outs/"
+
+# Database
+train_db_name: PASCALContext
+val_db_name: PASCALContext
+trBatch: 4
+valBatch: 6
+nworkers: 2
+ignore_index: 255
+
+# Optimizer and scheduler
+intermediate_supervision: True
+val_interval: 1000
+epochs: 999999
+max_iter: 40000
+optimizer: adamW
+optimizer_kwargs:
+   lr: 0.00002
+   betas:
+      a: 0.9
+      b: 0.999
+   weight_decay: 0.05
+scheduler: poly
+
+# Model
+model: TransformerNet
+backbone: intern_l
+head: mlp
+embed_dim: 512
+mtt_resolution_downsample_rate: 1
+PRED_OUT_NUM_CONSTANT: 64
+REFINE_DEPTH: [12, 12, 12]
+DILATED_RATIO: [[1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5],
+                [1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5],
+                [1, 2, 5, 1, 2, 5, 1, 2, 5, 1, 2, 5]]
+SQUEEZE_RATIO: [[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]]
+
+# Tasks
+task_dictionary:
+   include_semseg: True
+   include_human_parts: True
+   include_sal: True
+   include_edge: True
+   include_normals: True
+   edge_w: 0.95
+
+# Loss kwargs
+loss_kwargs:
+   loss_weights:
+       semseg: 1.0
+       human_parts: 2.0
+       sal: 5.0
+       edge: 50.0
+       normals: 10.0
+
+grad_clip_param: {'max_norm': 10, 'norm_type': 2}
