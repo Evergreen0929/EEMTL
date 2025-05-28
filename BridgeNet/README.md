@@ -1,61 +1,74 @@
-![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)
-
-# :fire: ECCV2022 InvPT: Inverted Pyramid Multi-task Transformer for Dense Scene Understanding
+# 🌉: BridgeNet: Comprehensive and Effective Feature Interactions for Multi-task Dense Predictions
 
 ##  :scroll: Introduction
 
-This repository implements our ECCV2022 paper InvPT:
-> [Hanrong Ye](https://sites.google.com/site/yhrspace/) and [Dan Xu](https://www.danxurgb.net/), [Inverted Pyramid Multi-task Transformer for Dense Scene Understanding](https://arxiv.org/abs/2203.07997). 
-> The Hong Kong University of Science and Technology (HKUST)
+This repository implements our TPAMI paper **BridgeNet**:
+> Jingdong Zhang, Jiayuan Fan*, Peng Ye, Bo Zhang, Hancheng Ye, Baopu Li, Yancheng Cai, Tao Chen  
+> *BridgeNet: Comprehensive and Effective Feature Interactions via Bridge Feature for Multi-task Dense Predictions*  
+> IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2025
 
-- InvPT proposes a novel end-to-end Inverted Pyramid multi-task Transformer to perform **simultaneous modeling of spatial positions and multiple tasks in a unified framework**. 
-- InvPT presents an efficient UP-Transformer block to learn multi-task feature interaction at gradually increased resolutions, which also incorporates effective self-attention message passing and multi-scale feature aggregation to produce task-specific prediction at a high resolution. 
-- InvPT achieves superior performance on NYUD-v2 and PASCAL-Context datasets respectively, and **significantly outperforms previous state-of-the-arts**.
+- **BridgeNet** is a unified framework for multi-task dense prediction that introduces **bridge features** to enable effective and efficient cross-task interactions.
+- It addresses key challenges in MTL:
+  1. Incomplete feature usage (low-/high-level imbalance),
+  2. Entangled task semantics in task-generic features from shared backbones,
+  3. Inefficient pairwise interactions with high complexity.
+- BridgeNet includes:
+  - **TPP**: disentangles task-specific patterns early,
+  - **BFE**: constructs bridge features from multi-scale representations,
+  - **TFR**: refines task outputs with linear-cost task-interaction.
+- BridgeNet achieves SOTA results on **NYUD-v2**, **Cityscapes**, and **PASCAL-Context** across segmentation, depth, normals, saliency, and edges.
+
 
 <p align="center">
-  <img alt="img-name" src="https://user-images.githubusercontent.com/14089338/184326334-d80e51f9-a907-49f9-876f-c2ecd4844834.png" width="700">
+  <img alt="img-name" src="assets/teaser.png" width="900">
   <br>
-    <em>InvPT enables jointly learning and inference of global spatial interaction and simultaneous all-task interaction, which is critically important for multi-task dense prediction.</em>
+    <em>BridgeNet enables efficient multi-task interactions by leveraging both high-level and low-level features through bridge representations, combining the strengths of encoder- and decoder-focused strategies with only O(n) complexity.</em>
 </p>
 
 
 <p align="center">
-  <img alt="img-name" src="https://user-images.githubusercontent.com/14089338/184339231-e019b212-f2ac-4cb9-9aa8-f50794b16ccb.png" width="1000">
+  <img alt="img-name" src="assets/main_arch.png" width="900">
   <br>
-    <em>Framework overview of the proposed Inverted Pyramid Multi-task Transformer (InvPT) for dense scene understanding.</em>
+    <em>The overview of our proposed BridgeNet, which is consist of a BFE for bridge feature extraction, TPP for task pattern disentangle, and a TFR for task feature refinement.</em>
 </p>
 
 
 
-# :sunglasses: Demo
 
-[![Watch the video](davis_shot.jpg)](https://youtu.be/XxSZUkknHII)
-To qualitatively demonstrate the powerful performance and generalization ability of our multi-task model *InvPT*, we further examine its multi-task prediction performance  for dense scene understanding in the new scenes. Specifically, we train InvPT on PASCAL-Context dataset (with 4,998 training images) and generate prediction results of the video frames in [DAVIS](https://davischallenge.org/) dataset without any fine-tuning. InvPT yields good performance on the new dataset with distinct data distribution.
-**Watch the demo [here](https://youtu.be/XxSZUkknHII)!**
-
-# :tv: News
-:triangular_flag_on_post: **Updates** 
-- :white_check_mark: July 18, 2022: Update with InvPT models trained on PASCAL-Context and NYUD-v2 dataset!
-
-
-# :grinning: Train your **InvPT**!
+# 😎 Train your **BridgeNet**
 
 ## 1. Build recommended environment
-For easier usage, we re-implement InvPT with a clean training framework, and here is a successful path to deploy the recommended environment:
+Following [InvPT](https://github.com/prismformore/Multi-Task-Transformer/tree/main/InvPT), we implement BridgeNet on the similar environment, and here is a successful path to deploy this recommended environment:
 ```bash
-conda create -n invpt python=3.7
-conda activate invpt
-pip install tqdm Pillow easydict pyyaml imageio scikit-image tensorboard
+conda create -n eemtl python=3.8
+conda activate eemtl
+
+pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu117
+
+pip install tqdm Pillow easydict pyyaml imageio scikit-image tensorboard wandb
 pip install opencv-python==4.5.4.60 setuptools==59.5.0
-
-# An example of installing pytorch-1.10.0 with CUDA 11.1
-pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
-
 pip install timm==0.5.4 einops==0.4.1
 ```
+Build wheels for DCNv3 to use to powerful Deformable Convolutional Backbone [InternImage](https://github.com/OpenGVLab/InternImage) for genral task feature extraction! If you wish to implement InterImage, 
+you can follow their [official installation instruction](https://github.com/OpenGVLab/InternImage/tree/master/segmentation#installation), here is a brief summary:
+```bash
+pip install -U openmim
+mim install mmsegmentation==0.30.0 mmcv==1.7.0
+
+# Please use a version of numpy lower than 2.0
+pip install numpy==1.26.4
+pip install pydantic==1.10.13
+
+cd ./models/ops_dcnv3
+# Before compiling, please use the nvcc -V command to check whether your nvcc version matches the CUDA version of PyTorch.
+sh ./make.sh
+# unit test (should see all checking is True)
+python test.py
+```
+If this is not working for your machine, you can also install the operator using precompiled the `.whl` files [DCNv3-1.0-whl](https://github.com/OpenGVLab/InternImage/releases/tag/whl_files).
 
 ## 2. Get data
-We use the same data (PASCAL-Context and NYUD-v2) as ATRC. You can download the data by:
+We use the same data (PASCAL-Context and NYUD-v2) as ATRC and InvPT. You can download the data by:
 ```bash
 wget https://data.vision.ee.ethz.ch/brdavid/atrc/NYUDv2.tar.gz
 wget https://data.vision.ee.ethz.ch/brdavid/atrc/PASCALContext.tar.gz
@@ -70,7 +83,7 @@ You need to specify the dataset directory as ```db_root``` variable in ```config
 ## 3. Train the model
 The config files are defined in ```./configs```, the output directory is also defined in your config file.
 
-As an example, we provide the training script of the best performing model of InvPT with Vit-L backbone. To start training, you simply need to run:
+As an example, you simply need to run:
 ```bash
 bash run.sh # for training on PASCAL-Context dataset. 
 ```
@@ -87,28 +100,21 @@ All models are defined in ```models/``` so it should be easy to **deploy your ow
 The training script itself includes evaluation. 
 For inferring with pre-trained models, you need to change ```run_mode``` in ```run.sh``` to ```infer```.
 
-### **Special evaluation for boundary detection**
-We follow previous works and use Matlab-based [SEISM](https://github.com/jponttuset/seism) project to compute the optimal dataset F-measure scores. The evaluation code will save the boundary detection predictions on the disk. 
+For boundary detection, we follow previous works and use Matlab-based [SEISM](https://github.com/jponttuset/seism) project to compute the optimal dataset F-measure scores. The evaluation code will save the boundary detection predictions on the disk. You can also use this [repo](https://github.com/prismformore/Boundary-Detection-Evaluation-Tools) produced by InvPT.
 
-Specifically, identical to ATRC and ASTMT, we use [maxDist](https://github.com/jponttuset/seism/blob/6af0cad37d40f5b4cbd6ca1d3606ec13b176c351/src/scripts/eval_method.m#L34)=0.0075 for PASCAL-Context and maxDist=0.011 for NYUD-v2. Thresholds for HED (under seism/parameters/HED.txt) are used. ```read_one_cont_png``` is used as IO function in SEISM.
+# 🤠	 Pretrained BridgeNet weights
+The orginal weights are no-longer reserved 😢, we re-train our best performing models with the training code in this repository and provide the weights for the reserachers. The performance is basically equivalent 
+compared with the results we reported in the paper. We also provide the training and testing tensorboard log files and 
 
-# :partying_face:	 Pre-trained InvPT models
-To faciliate the community to reproduce our SoTA results, we re-train our best performing models with the training code in this repository and provide the weights for the reserachers.
-
-### Download pre-trained models
+### Download pretrained models
 |Version | Dataset | Download | Segmentation | Human parsing | Saliency | Normals | Boundary | 
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| **InvPT<sup>*</sup>**| **PASCAL-Context** | [google drive](https://drive.google.com/file/d/1r0ugzCd45YiuBrbYTb94XVIRj6VUsBAS/view?usp=sharing), [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EcwMp9uUEfdLnQcaNJsN3bgBfQeHHqs2pkj7KmtGx_dslw?e=0CtDfq) | **79.91** | **68.54** | **84.38** | **13.90** | **72.90** |
-| InvPT (our paper) | PASCAL-Context | - | 79.03 | 67.61 | 84.81 | 14.15 | 73.00 | 
-| ATRC (ICCV 2021) | PASCAL-Context | - | 67.67 | 62.93 | 82.29 | 14.24 | 72.42 |
+| BridgeNet | PASCAL-Context | [Google Drive](https://drive.google.com/file/d/1APSXl5kNl7M6sWB-v4L_5xXqWKLa9BbF/view?usp=drive_link) | 80.08 | 72.36 | 85.40 | 13.25 | 73.30 |
 
-|Version | Dataset | Download | Segmentation | Depth | Normals | Boundary|
+|Version | Dataset | Download | Segmentation | Depth | Normals | Boundary |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| **InvPT<sup>*</sup>**| **NYUD-v2** | [google drive](https://drive.google.com/file/d/1Ag_4axN-TaAZS_W-nFIm4__DoDw1zgqI/view?usp=sharing), [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EU6ypDGEFPFLuC5rG5Vj2KkBliG1gXgbXh2t_YQJIk9YLw?e=U6hJ4H) | **53.65** | **0.5083** | **18.68** | **77.80**|
-|InvPT (our paper) |NYUD-v2|-| 53.56 | 0.5183 | 19.04 | 78.10 |
-| ATRC (ICCV 2021) |NYUD-v2|-| 46.33 | 0.5363 | 20.18 | 77.94|
+| BridgeNet | NYUD-v2 | [Google Drive](https://drive.google.com/file/d/1O3LdSetCBmQXaIe5C_DRBdXGiJT639iR/view?usp=sharing) | 56.75 | 0.4627 | 17.31 | 80.00 |
 
-<sup>*</sup>: reproduced results
 
 ### Infer with the pre-trained models
 Simply set the pre-trained model path in ```run.sh``` by adding ```--trained_model pretrained_model_path```.
@@ -118,20 +124,21 @@ You also need to change ```run_mode``` in ```run.sh``` to ```infer```.
 # :hugs: Cite
 BibTex:
 ```
-@InProceedings{invpt2022,
-  title={Inverted Pyramid Multi-task Transformer for Dense Scene Understanding},
-  author={Ye, Hanrong and Xu, Dan},
-  booktitle={ECCV},
-  year={2022}
+@article{zhang2025bridgenet,
+  title={BridgeNet: Comprehensive and Effective Feature Interactions via Bridge Feature for Multi-Task Dense Predictions},
+  author={Zhang, Jingdong and Fan, Jiayuan and Ye, Peng and Zhang, Bo and Ye, Hancheng and Li, Baopu and Cai, Yancheng and Chen, Tao},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025},
+  publisher={IEEE}
 }
 ```
 Please also consider :star2: star our project to share with your community if you find this repository helpful!
 
 # :blush: Contact
-Please contact [Hanrong Ye](https://sites.google.com/site/yhrspace/) if any questions.
+Please contact [Jingdong Zhang](https://evergreen0929.github.io/) if any questions.
 
 # :+1: Acknowledgement
-This repository borrows partial codes from [MTI-Net](https://github.com/SimonVandenhende/Multi-Task-Learning-PyTorch) and [ATRC](https://github.com/brdav/atrc).
+This repository borrows partial codes from [InvPT](https://github.com/prismformore/Multi-Task-Transformer/tree/main/InvPT), [MTI-Net](https://github.com/SimonVandenhende/Multi-Task-Learning-PyTorch) and [ATRC](https://github.com/brdav/atrc). 
 
 # :business_suit_levitating: License
 [Creative commons license](http://creativecommons.org/licenses/by-nc/4.0/) which allows for personal and research use only. 
