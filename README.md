@@ -2,7 +2,7 @@
 
 ##  :scroll: Introduction
 
-This repository presents two complementary multi-task learning frameworks for dense scene understanding: BridgeNet, which achieves comprehensive feature interactions via bridge features across tasks, and HiTTs, which discovers effective supervision from partially annotated data using hierarchical task tokens. Task including:
+This repository presents two complementary multi-task learning frameworks for dense scene understanding: [**BridgeNet**](https://github.com/Evergreen0929/EEMTL/tree/main/BridgeNet), which achieves comprehensive feature interactions via bridge features across tasks, and [**HiTTs**](https://github.com/Evergreen0929/EEMTL/tree/main/HiTTs), which discovers effective supervision from partially annotated data using hierarchical task tokens. Task including:
 
 | Task                         |  NYUD-v2  | PASCAL-Context | 
 |------------------------------|:---------:|:--------------:|
