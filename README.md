@@ -27,6 +27,9 @@ Please check the following papers for details:
 <p align="center">
   <img alt="img-name" src="BridgeNet/assets/teaser.png" width="900">
 </p>
+<p align="center">
+  <img alt="img-name" src="BridgeNet/assets/compare_show.png" width="900">
+</p>
 
 
 ### 🏷️ [Multi-Task Label Discovery via Hierarchical Task Tokens for Partially Annotated Dense Predictions](https://arxiv.org/abs/2411.18823)
