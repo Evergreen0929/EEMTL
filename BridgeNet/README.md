@@ -53,7 +53,7 @@ pip install tqdm Pillow easydict pyyaml imageio scikit-image tensorboard wandb
 pip install opencv-python==4.5.4.60 setuptools==59.5.0
 pip install timm==0.5.4 einops==0.4.1
 ```
-Build wheels for DCNv3 to use to powerful Deformable Convolutional Backbone [InternImage](https://github.com/OpenGVLab/InternImage) for genral task feature extraction! If you wish to implement InterImage, 
+Build wheels for DCNv3 to use to powerful Deformable Convolutional Backbone [InternImage](https://github.com/OpenGVLab/InternImage) for general task feature extraction! If you wish to implement InternImage, 
 you can follow their [official installation instruction](https://github.com/OpenGVLab/InternImage/tree/master/segmentation#installation), here is a brief summary:
 ```bash
 pip install -U openmim
@@ -95,7 +95,7 @@ or
 ```bash
 bash run_nyud.sh # for training on NYUD-v2 dataset.
 ```
-**after specifcifing your devices and config** in ```run.sh```.
+**After specifcifing your devices and config** in ```run.sh```.
 This framework supports [DDP](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) for multi-gpu training.
 
 All models are defined in ```models/``` so it should be easy to **deploy your own model in this framework**.
@@ -111,13 +111,13 @@ The orginal weights are no-longer reserved 😢, we re-train our best performing
 compared with the results we reported in the paper. We also provide the training and testing tensorboard log files and 
 
 ### Download pretrained models
-|Version | Dataset | Download | Segmentation | Human parsing | Saliency | Normals | Boundary | 
+|Version | Dataset | Download | Segmentation | Human parsing | Saliency | Normals | Boundary Loss | 
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| BridgeNet | PASCAL-Context | [Google Drive](https://drive.google.com/file/d/1LUDoV35W3-5OTG_3HetDc2WcQ5J1tETl/view?usp=sharing) | 80.08 | 72.36 | 85.40 | 13.25 | 73.30 |
+| BridgeNet | PASCAL-Context | [Google Drive](https://drive.google.com/file/d/1LUDoV35W3-5OTG_3HetDc2WcQ5J1tETl/view?usp=sharing) | 80.08 | 72.36 | 85.40 | 13.25 | 0.04237 |
 
-|Version | Dataset | Download | Segmentation | Depth | Normals | Boundary |
+|Version | Dataset | Download | Segmentation | Depth | Normals | Boundary Loss |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| BridgeNet | NYUD-v2 | [Google Drive](https://drive.google.com/file/d/1vcjWfjIuEn9CkU-Rv7DrGhYioL7FbaN6/view?usp=sharing) | 56.75 | 0.4627 | 17.31 | 80.00 |
+| BridgeNet | NYUD-v2 | [Google Drive](https://drive.google.com/file/d/1vcjWfjIuEn9CkU-Rv7DrGhYioL7FbaN6/view?usp=sharing) | 56.75 | 0.4627 | 17.31 | 0.04706 |
 
 
 ### Infer with the pre-trained models
