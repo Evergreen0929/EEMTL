@@ -1,5 +1,9 @@
 # 🌉: BridgeNet: Comprehensive and Effective Feature Interactions for Multi-task Dense Predictions
 
+<p align="center">
+  <img alt="img-name" src="assets/compare_show.png" width="900">
+</p>
+
 ##  :scroll: Introduction
 
 This repository implements our TPAMI paper **BridgeNet**:
@@ -109,11 +113,11 @@ compared with the results we reported in the paper. We also provide the training
 ### Download pretrained models
 |Version | Dataset | Download | Segmentation | Human parsing | Saliency | Normals | Boundary | 
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| BridgeNet | PASCAL-Context | [Google Drive](https://drive.google.com/file/d/1APSXl5kNl7M6sWB-v4L_5xXqWKLa9BbF/view?usp=drive_link) | 80.08 | 72.36 | 85.40 | 13.25 | 73.30 |
+| BridgeNet | PASCAL-Context | [Google Drive](https://drive.google.com/file/d/1LUDoV35W3-5OTG_3HetDc2WcQ5J1tETl/view?usp=sharing) | 80.08 | 72.36 | 85.40 | 13.25 | 73.30 |
 
 |Version | Dataset | Download | Segmentation | Depth | Normals | Boundary |
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| BridgeNet | NYUD-v2 | [Google Drive](https://drive.google.com/file/d/1O3LdSetCBmQXaIe5C_DRBdXGiJT639iR/view?usp=sharing) | 56.75 | 0.4627 | 17.31 | 80.00 |
+| BridgeNet | NYUD-v2 | [Google Drive](https://drive.google.com/file/d/1vcjWfjIuEn9CkU-Rv7DrGhYioL7FbaN6/view?usp=sharing) | 56.75 | 0.4627 | 17.31 | 80.00 |
 
 
 ### Infer with the pre-trained models
