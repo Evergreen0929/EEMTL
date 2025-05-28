@@ -2,7 +2,7 @@
 
 ##  :scroll: Introduction
 
-This repository presents two complementary multi-task learning frameworks for dense scene understanding: [**BridgeNet**](https://github.com/Evergreen0929/EEMTL/tree/main/BridgeNet), which achieves comprehensive feature interactions via bridge features across tasks, and [**HiTTs**](https://github.com/Evergreen0929/EEMTL/tree/main/HiTTs), which discovers effective supervision from partially annotated data using hierarchical task tokens. Task including:
+This repository presents two complementary multi-task learning frameworks for dense scene understanding: [**BridgeNet**](https://ieeexplore.ieee.org/abstract/document/10870147?casa_token=VmHCD37qqAYAAAAA:etniTucun-iYgFaVamMJO-BhbNxYIJ61PIzpAp9wBJ-KJnxdja1x58mFktAMZoWJAoKi32Pz-Tc), which achieves comprehensive feature interactions via bridge features across tasks, and [**HiTTs**](https://arxiv.org/abs/2411.18823), which discovers effective supervision from partially annotated data using hierarchical task tokens. Task including:
 
 | Task                         |  NYUD-v2  | PASCAL-Context | 
 |------------------------------|:---------:|:--------------:|
@@ -19,7 +19,7 @@ This repository presents two complementary multi-task learning frameworks for de
 Please check the following papers for details:
 
 
-### 🌉 [BridgeNet: Comprehensive and Effective Feature Interactions via Bridge Feature for Multi-task Dense Predictions](https://ieeexplore.ieee.org/abstract/document/10870147?casa_token=VmHCD37qqAYAAAAA:etniTucun-iYgFaVamMJO-BhbNxYIJ61PIzpAp9wBJ-KJnxdja1x58mFktAMZoWJAoKi32Pz-Tc)
+### 🌉 [BridgeNet: Comprehensive and Effective Feature Interactions via Bridge Feature for Multi-task Dense Predictions](https://github.com/Evergreen0929/EEMTL/tree/main/BridgeNet) ([paper](https://ieeexplore.ieee.org/abstract/document/10870147?casa_token=VmHCD37qqAYAAAAA:etniTucun-iYgFaVamMJO-BhbNxYIJ61PIzpAp9wBJ-KJnxdja1x58mFktAMZoWJAoKi32Pz-Tc))
 
 > [Jingdong Zhang](https://evergreen0929.github.io/), [Jiayuan Fan](https://scholar.google.com/citations?hl=zh-CN&user=gsLd2ccAAAAJ), [Peng Ye](https://scholar.google.com/citations?user=UEZZP5QAAAAJ&hl=en&oi=sra), [Bo Zhang](https://openreview.net/profile?id=~Bo_Zhang17), [Hancheng Ye](https://openreview.net/profile?id=~Hancheng_Ye1), [Baopu Li](https://scholar.google.com/citations?user=OOY-4CwAAAAJ&hl=en), [Yancheng Cai](https://caiyancheng.github.io/) and [Tao Chen](https://eetchen.github.io/)
 > 
@@ -32,7 +32,7 @@ Please check the following papers for details:
 </p>
 
 
-### 🏷️ [Multi-Task Label Discovery via Hierarchical Task Tokens for Partially Annotated Dense Predictions](https://arxiv.org/abs/2411.18823)
+### 🏷️ [Multi-Task Label Discovery via Hierarchical Task Tokens for Partially Annotated Dense Predictions](https://github.com/Evergreen0929/EEMTL/tree/main/HiTTs) ([paper](https://arxiv.org/abs/2411.18823))
 
 > [Jingdong Zhang](https://evergreen0929.github.io/), [Hanrong Ye](https://sites.google.com/site/yhrspace/), [Xin Li](https://people.tamu.edu/~xinli/), [Wenping Wang](https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en) and [Dan Xu](https://www.danxurgb.net/)
 > 
