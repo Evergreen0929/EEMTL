@@ -25,7 +25,7 @@ Please check the following papers for details:
 > 
 > TPAMI 2025
 <p align="center">
-  <img alt="img-name" src="BridgeNet/assets/teaser.pdf" width="900">
+  <img alt="img-name" src="BridgeNet/assets/teaser.png" width="900">
 </p>
 
 
