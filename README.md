@@ -36,8 +36,7 @@ Please check the following papers for details:
 > Arxiv
 
 <p align="center">
-<img alt="img-name" src="https://user-images.githubusercontent.com/14089338/220043972-b3bfcc0d-d76e-4d34-8b20-d7c5d9f00a9f.gif" width="900">
-<img alt="img-name" src="https://user-images.githubusercontent.com/14089338/220043986-291797a8-8994-4a54-846e-057e3778a972.gif" width="900">
+  <img alt="img-name" src="HiTTs/assets/vis_label_init.png" width="900">
 </p>
 
 # Cite
