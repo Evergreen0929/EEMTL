@@ -15,7 +15,7 @@ def get_backbone(p):
 
     if p['backbone'] == 'vitB':
         from models.transformers.vit import vit_base_patch16_384
-        backbone = vit_base_patch16_384(pretrained=False, drop_path_rate=0.15, img_size=p.TRAIN.SCALE)
+        backbone = vit_base_patch16_384(pretrained=True, drop_path_rate=0.15, img_size=p.TRAIN.SCALE)
         backbone_channels = [768 for _ in range(4)]
         p.backbone_channels = backbone_channels
         p.spatial_dim = [[p.TRAIN.SCALE[0] // 16, p.TRAIN.SCALE[1] // 16] for _ in range(4)]
