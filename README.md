@@ -1,4 +1,4 @@
-# [ _TPAMI2025_ ] Effective and Efficient Multi-Task Learning Frameworks for Dense Scene Understanding 🌇🌆🏙️
+# [ *TPAMI2025, ACMMM2025* ] EEMTL: **ℰffective and ℰfficient ℳulti-𝒯ask ℒearning** for Dense Scene Understanding 🌇🌆🏙️
 
 ##  :scroll: Introduction
 
@@ -36,7 +36,7 @@ Please check the following papers for details:
 
 > [Jingdong Zhang](https://evergreen0929.github.io/), [Hanrong Ye](https://sites.google.com/site/yhrspace/), [Xin Li](https://people.tamu.edu/~xinli/), [Wenping Wang](https://scholar.google.com/citations?user=28shvv0AAAAJ&hl=en) and [Dan Xu](https://www.danxurgb.net/)
 > 
-> Arxiv
+> ACM MM 2025
 
 <p align="center">
   <img alt="img-name" src="HiTTs/assets/vis_label_init.png" width="900">
