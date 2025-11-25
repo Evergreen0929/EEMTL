@@ -110,8 +110,8 @@ We provide the pretrained weights for our best performing models.
 
 |Version | Dataset | Download | Segmentation | Depth | Normals |
 |:-:|:-:|:-:|:-:|:-:|:-:|
-| One-Label | NYUD-v2 | [Google Drive] | - | - | - |
-| Random-Labels | NYUD-v2 | [Google Drive] | - | - | - |
+| One-Label | NYUD-v2 | [Google Drive](https://drive.google.com/file/d/1wpp9BXNex3mT3oqu-BYOQheD2HgPSG8_/view?usp=sharing) | 47.30 | 0.4539 | 25.40 |
+| Random-Labels | NYUD-v2 | [Google Drive](https://drive.google.com/file/d/1YFeketEJDQuRZ24ppIxvSGUkAFEpRpTH/view?usp=sharing) | 47.73 | 0.4510 | 24.86 |
 
 
 # 🤗 Cite
