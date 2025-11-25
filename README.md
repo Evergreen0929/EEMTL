@@ -1,4 +1,4 @@
-# [ *TPAMI2025, ACMMM2025* ] EEMTL: **ℰffective and ℰfficient ℳulti-𝒯ask ℒearning** for Dense Scene Understanding 🌇🌆🏙️
+# EEMTL: **ℰffective and ℰfficient ℳulti-𝒯ask ℒearning** for Dense Scene Understanding 🌇🌆🏙️ [ *TPAMI2025, ACMMM2025* ]
 
 ##  :scroll: Introduction
 
