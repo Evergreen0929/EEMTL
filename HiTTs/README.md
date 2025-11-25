@@ -79,8 +79,10 @@ args.config_exp = './configs/pascal/hitts.yml'
 # ... existing code ...
 ```
 
+The config files are defined in ```./configs```. You can specify the **onelabel** or **randomlabel** setting by modifying the parameter ```ssl_type``` in the config file.
+
 **Running the training scripts:**
-After configuring the python file, you can run the shell scripts provided.
+After configuring the files, you can run the shell scripts provided.
 
 For **PASCAL-Context**:
 
