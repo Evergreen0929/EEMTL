@@ -12,7 +12,7 @@ nworkers: 2
 # Optimizer and scheduler
 global_iter: 2
 val_interval: 1000
-epochs: 200
+epochs: 100
 max_iter: 999999999 #not used
 optimizer: adam
 optimizer_kwargs:
