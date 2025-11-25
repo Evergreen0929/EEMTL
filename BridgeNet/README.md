@@ -108,7 +108,7 @@ For boundary detection, we follow previous works and use Matlab-based [SEISM](ht
 
 # 🤠	 Pretrained BridgeNet weights
 The orginal weights are no-longer reserved 😢, we re-train our best performing models with the training code in this repository and provide the weights for the reserachers. The performance is basically equivalent 
-compared with the results we reported in the paper. We also provide the training and testing tensorboard log files and 
+compared with the results we reported in the paper. We also provide the training and testing tensorboard log files.
 
 ### Download pretrained models
 |Version | Dataset | Download | Segmentation | Human parsing | Saliency | Normals | Boundary Loss | 

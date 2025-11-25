@@ -1,0 +1,49 @@
+# Setup
+version_name: nyud_randomlabels
+setup: multi_task
+
+# Database
+train_db_name: NYUD
+val_db_name: NYUD
+trBatch: 6
+valBatch: 6
+nworkers: 2
+
+# Optimizer and scheduler
+global_iter: 2
+val_interval: 1000
+epochs: 100
+max_iter: 999999999 #not used
+optimizer: adam
+optimizer_kwargs:
+   lr: 0.00002
+   weight_decay: 0.000001
+scheduler: poly
+
+# Model
+model: prompt_baseline_ms
+backbone: resnet18
+backbone_kwargs:
+   pretrained: True
+   dilated: True
+head: deeplab
+
+# Tasks
+task_dictionary:
+   include_semseg: True
+   include_depth: True
+   include_normals: True
+
+# Loss kwargs
+loss_kwargs:
+   loss_scheme: baseline_token
+   loss_weights:
+       semseg: 1.0
+       depth: 0.6
+       normals: 1.0
+
+grad_clip_param: {'max_norm': 10, 'norm_type': 2} 
+ignore_index: 255
+
+# training setting
+ssl_type: randomlabels # randomlabels
