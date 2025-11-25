@@ -72,3 +72,6 @@ Please do consider :star2: star our project to share with your community if you 
 Please contact [Jingdong Zhang](https://evergreen0929.github.io/) if any questions.
 
 # Related Project
+**[SPGen](https://github.com/Evergreen0929/Spherical-Projection-Shape-Generation):** This project proposes SPGen, leveraging multi-layer Spherical Projection (SP) maps as a consistent and flexible representation to efficiently generate high-quality, topologically free 3D meshes from a single input image.
+
+**[PDT](https://github.com/shanemankiw/PDT):** This project proposes Point Distribution Transformation (PDT) leveraging diffusion models to transform unstructured point clouds into semantically meaningful distributions for diverse 3D geometry processing tasks.
