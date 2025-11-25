@@ -45,19 +45,16 @@ pip install timm==0.5.4 einops==0.4.1
 
 ## 2\. Get data
 
-We use the same data (PASCAL-Context and NYUD-v2) as ATRC and InvPT. You can download the data by:
-
-```bash
-wget https://data.vision.ee.ethz.ch/brdavid/atrc/NYUDv2.tar.gz
-wget https://data.vision.ee.ethz.ch/brdavid/atrc/PASCALContext.tar.gz
-```
+We use the same data (PASCAL-Context and NYUD-v2) as ATRC. You can download the data from:
+[PASCALContext.tar.gz](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/ER57KyZdEdxPtgMCai7ioV0BXCmAhYzwFftCwkTiMmuM7w?e=2Ex4ab),
+[NYUDv2.tar.gz](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EZ-2tWIDYSFKk7SCcHRimskBhgecungms4WFa_L-255GrQ?e=6jAt4c)
 
 And then extract the datasets by:
-
 ```bash
 tar xfvz NYUDv2.tar.gz
 tar xfvz PASCALContext.tar.gz
 ```
+
 
 You need to specify the dataset directory as `db_root` variable in `configs/mypath.py`.
 
@@ -136,7 +133,7 @@ Please contact [Jingdong Zhang](mailto:jdzhang@tamu.edu) if any questions.
 
 # 👍 Acknowledgement
 
-This repository borrows partial codes from [InvPT](https://github.com/prismformore/Multi-Task-Transformer/tree/main/InvPT) and [DiffusionMTL](https://github.com/prismformore/DiffusionMTL).
+This repository borrows partial codes from [InvPT](https://github.com/prismformore/Multi-Task-Transformer/tree/main/InvPT) and [DiffusionMTL](https://github.com/prismformore/DiffusionMTL). Thanks [Hanrong Ye](https://github.com/prismformore) for code support.
 
 # 🕴️ License
 
