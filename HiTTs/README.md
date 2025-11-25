@@ -9,7 +9,8 @@
 This repository implements our ACMMM 2025 paper **HiTTs**:
 
 > Jingdong Zhang, Hanrong Ye, Xin Li, Wenping Wang, Dan Xu  
-> *Multi-Task Label Discovery via Hierarchical Task Tokens for Partially Annotated Dense Predictions* \> Proceedings of the 33rd ACM International Conference on Multimedia (MM '25)
+> *Multi-Task Label Discovery via Hierarchical Task Tokens for Partially Annotated Dense Predictions*  
+> Proceedings of the 33rd ACM International Conference on Multimedia (MM '25)
 
   - **HiTTs** proposes a novel approach to optimize a set of compact learnable **Hierarchical Task Tokens**, including global and fine-grained ones, to discover consistent pixel-wise supervision signals.
   - It addresses the challenge of **partially annotated dense predictions**, where each image is annotated with labels for only a subset of tasks.

@@ -42,6 +42,13 @@ Please check the following papers for details:
   <img alt="img-name" src="HiTTs/assets/vis_label_init.png" width="900">
 </p>
 
+## 📝 TODO
+- ✅ *May 27, 2025*: Release code of BridgeNet.
+- ✅ *May 27, 2025*: Release pretrain weight of BridgeNet.
+- ✅ *Nov 24, 2025*: Release code of HiTTs.
+- 🟩 Release pretrain weight of HiTTs.
+
+
 # Cite
 BibTex:
 ```
