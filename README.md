@@ -49,7 +49,7 @@ Please check the following papers for details:
 - 🟩 Release pretrain weight of HiTTs.
 
 ## 🛠️ Implemtation
-Please refer to [BridgeNet](https://github.com/Evergreen0929/EEMTL/blob/main/BridgeNet/README.md) and [HiTTs](https://github.com/Evergreen0929/EEMTL/blob/main/HiTTs/README.md) for detailed implementation instructions.
+Please refer to README files in [BridgeNet](https://github.com/Evergreen0929/EEMTL/blob/main/BridgeNet/README.md) and [HiTTs](https://github.com/Evergreen0929/EEMTL/blob/main/HiTTs/README.md) for detailed implementation instructions.
 
 # Cite
 BibTex:
