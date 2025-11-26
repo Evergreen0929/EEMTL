@@ -48,6 +48,8 @@ Please check the following papers for details:
 - ✅ *Nov 24, 2025*: Release code of HiTTs.
 - 🟩 Release pretrain weight of HiTTs.
 
+## 🛠️ Implemtation
+Please refer to [BridgeNet](https://github.com/Evergreen0929/EEMTL/blob/main/BridgeNet/README.md) and [HiTTs](https://github.com/Evergreen0929/EEMTL/blob/main/HiTTs/README.md) for detailed implementation instructions.
 
 # Cite
 BibTex:
