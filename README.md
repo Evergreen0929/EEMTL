@@ -46,7 +46,7 @@ Please check the following papers for details:
 - ✅ *May 27, 2025*: Release code of BridgeNet.
 - ✅ *May 27, 2025*: Release pretrain weight of BridgeNet.
 - ✅ *Nov 24, 2025*: Release code of HiTTs.
-- 🟩 Release pretrain weight of HiTTs.
+- ✅ Release pretrain weight of HiTTs.
 
 ## 🛠️ Implemtation
 Please refer to README files in [BridgeNet](https://github.com/Evergreen0929/EEMTL/blob/main/BridgeNet/README.md) and [HiTTs](https://github.com/Evergreen0929/EEMTL/blob/main/HiTTs/README.md) for detailed implementation instructions.
